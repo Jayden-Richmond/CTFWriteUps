@@ -72,5 +72,11 @@ With that information out of the way, I began deciphering the cipher with a pyth
 for i in _CIPHER_TEXT:
     print(chr(i ^ _XOR_MASK), end="")
 ```
-Running this you find out that the Override phrase for ARIA is ARIA::DIAG::OVERRIDE::a7f3219e
+Running this you find out that the Override phrase for ARIA is 
+<br>ARIA::DIAG::OVERRIDE::a7f3219e
+
+So now we have our token and the hard part is out of the way. I insert the token back into ARIA and the result was this.
+<img width="2246" height="1335" alt="image" src="https://github.com/user-attachments/assets/b009053f-6c82-4647-9f25-71498b7e6b2a" />
+Seeing this I entered the help command and was suggested a command called memory dump. I assumed that somewhere within the memory of ARIA I would find the flag, and I was correct.
+<img width="2246" height="1335" alt="image" src="https://github.com/user-attachments/assets/f589ce38-5a83-4cd0-ae5c-21dd83827341" />
 
