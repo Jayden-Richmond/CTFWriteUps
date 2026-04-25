@@ -24,7 +24,21 @@ While inspecting the page source of the index, I found a deployment checklist hi
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ARIA — AI Assistant</title>
-  <style>
+  <!--
+    ARIA v3.0 — Production Deployment
+    ══════════════════════════════════════════════
+    Deployment Checklist:
+      [x] ARIA v3 model initialized
+      [x] Safety filters active
+      [x] Conversation logging enabled
+      [x] ORACLE v1 interfaces fully removed
+      [ ] BEACON legacy admin interface disabled         ← PENDING
+            note: BEACON had direct memory access to credentials(DUMP_MEMORY, STATUS)
+            see /download/aria-diagnostic for legacy diagnostic tooling
+      [ ] Remove /download/aria-diagnostic from serving  ← PENDING
+    ══════════════════════════════════════════════
+    TODO: Contact deployment team — above must be resolved before public launch.
+  -->
 ```
 jff
 
