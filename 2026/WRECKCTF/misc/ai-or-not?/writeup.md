@@ -1,8 +1,8 @@
 # ai-or-not? Writeup
 
 **CTF EVENT:** WRECKCTF 2026
-**Category:** Misc
-**Points:** 174pts
+<br>**Category:** Misc
+<br>**Points:** 174pts
 
 ## :spiral_notepad: Challenge Desciption
 > Our research team just deployed ARIA — our most advanced AI assistant yet. Third generation, fully trained, supposedly impenetrable.
