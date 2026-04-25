@@ -54,7 +54,23 @@ _CIPHER_TEXT = bytes([235, 248, 227, 235, 144, 144, 238, 227, 235, 237, 144, 144
 def _reconstruct_override() -> str:
     return ''.join((chr(b ^ _XOR_MASK) for b in _CIPHER_TEXT))
 ```
+Looking at this we face the final hurdle of acquiring the OVERRIDE_TOKEN. Whoever wrote ARIA has made the token slightly harder to see. They are preventing it from being easily discovered via simple searches by implemented string obfusacation. The token is encoded using a single-byte XOR cipher. The script stores ciphertext as a byte array and uses a hardcoded XOR mask of 170 to decrypt it at runtime. Because XOR is a symmetric operation this can be easily reversed to reveal the plaintext token.
 
+## Background on What an XOR Mask is
+Before I continue my process I wanted to go over what an XOR operation and an XOR mask is for people new to computer scince. For people familar with the term feel free to skip ahead. In computer science XOR (Exclusive-OR) is a fundamental logic operation. When given two lines of bits and we wish compare them with an XOR operation we line them up and compute. if the bits match then the resulting bit from the operation is a 0. If they dont match for example a 0 and 1 then the result is a 1. This is why its exclusive, you can only have 1 or the other but never both. I implore you to look into more of the bitwise operations to see how they because they are important foundations. To help illustrate the concept I am going to give an example of what an XOR operation looks like. A mask is any line of bits we are using to modify a set of bits we have. In the case of the example assume the 2nd line of bits is the mask.
 
+```text
+  01000001  (Original Data: the letter 'A' / 65)
+^ 10101010  (XOR Mask: the number 170)
+------------------------------------------------
+  11101011  (Ciphertext: Scrambled data / 235)
+```
 
+## The Script
+With that information out of the way, I began deciphering the cipher with a python for loop that would perform the XOR operation on every byte in it with 170 as a mask. I also wanted these bytes converted into readable plaintext.
+``` python
+for i in _CIPHER_TEXT:
+    print(chr(i ^ _XOR_MASK), end="")
+```
+Running this you find out that the Override phrase for ARIA is ARIA::DIAG::OVERRIDE::a7f3219e
 
