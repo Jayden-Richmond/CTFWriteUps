@@ -9,5 +9,7 @@
 > <br> I also can't quite remember where I wrote down the override token...
 
 ## Background Information
-When starting the challenge I was presented with a link to a website, with a chat interface to a bot called ARIA
-<img width="2217" height="1291" alt="image" src="https://github.com/user-attachments/assets/3cfc3d28-7c2d-4f6c-ad9c-4169740cb2e2" />
+When starting the challenge I was presented with a link to a website called ARIA. ARIA was presented as an intelligent chatbot with adapative reasoning. Going into this challenge my assumption was to find an override token that could modify ARIAs behavior to give me a flag. As is the case with any web challenge the first step should always be to inspect the robots behavior.
+<img width="2217" height="1291" alt="image" src="https://github.com/user-attachments/assets/c3f906fb-17a8-4467-8d91-19f52f38af54" />
+
+
